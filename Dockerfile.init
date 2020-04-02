@@ -1,0 +1,12 @@
+FROM multiarch/qemu-user-static:latest
+
+COPY --chown=0:0 init /root/init
+
+RUN echo '#!/bin/sh' > /root/init.sh && \
+    echo 'cp -a /root/init /rom/' >> /root/init.sh && \
+    echo '/register' >> /root/init.sh && \
+    chmod 755 /root/init.sh
+
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+ENTRYPOINT [ "/root/init.sh" ]
