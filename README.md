@@ -9,6 +9,7 @@
     ./build.sh
     ./start.sh
     ```
+4. 稍等，打开 http://127.0.0.1:11080/
 
 Tested on: 
 * Docker version 19.03.8, build afacb8b
